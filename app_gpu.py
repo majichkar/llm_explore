@@ -44,9 +44,11 @@ n_batch = 10000  # Should be between 1 and n_ctx, consider the amount of VRAM in
 # initialize the LLM & Embeddings
 llm = LlamaCpp(model_path="./models/llama-7b.ggmlv3.q4_0.bin",
                n_gpu_layers=n_gpu_layers,
-    n_batch=n_batch,
+               n_batch=n_batch,
                )
-embeddings = LlamaCppEmbeddings(model_path="models/llama-7b.ggmlv3.q4_0.bin")
+embeddings = LlamaCppEmbeddings(model_path="models/llama-7b.ggmlv3.q4_0.bin",
+                                n_gpu_layers=n_gpu_layers,
+                                n_batch=n_batch,)
 llm_chain = LLMChain(llm=llm, prompt=prompt)
 
 # /Users/mohitarvind.jichkar/Desktop/LLM Explore/models/llama-7b.ggmlv3.q4_0.bin
