@@ -39,7 +39,7 @@ Answer:"""
 prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
 
 n_gpu_layers = 4000  # Change this value based on your model and your GPU VRAM pool.
-n_batch = 5000  # Should be between 1 and n_ctx, consider the amount of VRAM in your GPU.
+n_batch = 2000  # Should be between 1 and n_ctx, consider the amount of VRAM in your GPU.
 
 # initialize the LLM & Embeddings
 llm = LlamaCpp(model_path="./models/llama-7b.ggmlv3.q4_0.bin",
